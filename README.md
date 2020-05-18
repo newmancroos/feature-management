@@ -82,7 +82,7 @@
                     </li>
                     <li>
                         In our sample application, Percentage sample may gives error because Filter is enable during Controller method but not when View render.( we are checking in both places). We can correct it by injecting <b>IFeatureManagerSnapshot</b> instead of <b>IFeatureManger</b> and No need to change in private readonly variable in class level.
-                        What is does is <b>Maintaining the same Feature Ob/Off status for current request life time</b>
+                        What is does is <b>Maintaining the same Feature On/Off status for current request life time</b>
                     </li>
                 </ol>
         </li>
