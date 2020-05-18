@@ -52,4 +52,24 @@
     <p>
         We can have over Feature Management configuration in <b>Azure Configuration</b> instead of <b>AppSetting.json</b>
     </p>
+    <p>
+        <h2>Feature Management in Azure</h2><br>
+        <ol>
+            <li>
+                Create a App Configuration in Azure <br>
+                * Search for App Configuration <br>
+                <img src=".\images\azure-portal-search.png"><br><br>
+                * Create <b>App Configuration</b><br>
+                <img src=".\images\app-configuration-create.png"><br><br>
+                * Fill all the fields<br>
+                <img src=".\images\app-configuration-create-settings.png"> <br><br>
+                *Deplyment takes place and create a App Configuratio in the given name. <br>
+                *Open your App configuration and Add a feature flage<br>
+                <img src="add-beta-feature-flag.png"> <br><br>
+                *Note down the connection string for the created App configuration<br>
+
+            </li>
+        </ol>
+    </p>
+
 </p>
