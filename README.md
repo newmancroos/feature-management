@@ -60,7 +60,7 @@
                 </li>
                 <li>
                     Specify the Time configuration in thw appsetting.json<br>
-                    <img src=".\images\TimeWindowFlageinAppsetting.jpg"><br><br>
+                    <img src=".\images\TimeWindowSetting.JPG"><br><br>
                     Now if yo run the application and try to list User then it will not listdown the user because the date and time already expires. If you change the date/time interval with current date time you will see the user list
                 </li>
             </ol>
