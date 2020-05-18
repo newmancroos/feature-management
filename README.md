@@ -10,12 +10,46 @@
     </li>
     <li>
         Create a Feature flag to indiacate the name of the features and later we could use this flage to On/Off the feature.
-        Feature flage might be a <b>Enum</b>
+        Feature flage might be a <b>Enum</b> enum name should be <b>FeatureFlage</b> <br>
+        <img src=".\images\enum.JPG">
+        <br>
     </li>
     <li>
-        To enable/disble feature in a control we need to inject <b>IFeatureManager</b> and then we can write code within if block that check wether a feature enable/diable. <br>
-        <img src=".\images\Feature_Check_Controller.JPG">
+        To enable/disble feature in a control we need to inject <b>IFeatureManager</b> and then we can write code within if block that check wether a feature enable/diable. <br><br>
+        <img src=".\images\Feature_Check_Controller.JPG"><br>
+    </li>
+    <li>
+        We should register <b>FeatureManagement</b> in the startup.cs to work correctly.
+        <pre>
+            services.AddFeatureManagement();
+        </pre>
+        <br>
+        Now if we run the project we'll get error on the view because in controller since we haven't yet enable or On the <b>FeatureFlage -&gt; ListEmployee</b> in in controller fetching employee will be skipped and in view employees object is null.
+        So we need to check the feature wether enable or not.
+    </li>
+    <li>
+        Implementing Feature Management check in the view we need to first register the Tag Helper to <b>_ViewImport.cshtml</b>
+        <img src=".\images\FeatureManagement_TagHelper_Import.JPG">
+    </li>
+    <li>
+        now we can use the Feature check in the view
+        <img src="Feature_Check_in_View.JPG">
+    </li>
+    <li>
+        Now we know how to define and use <b>Feature Management</b> but how to Endble/On the feature??????
+    </li>
+    <li>
+        We can declare the Feature Management in <b>AppSetting.json or Azure Feature management configuration</b>
+    </li>
+    <li>
+        Declare Feature management in appSetting.json under <b>FeatureManagement -- [FeatureName : true]</b><br>
+        <img src="Enable_Feature_AppSetting.JPG">
+    </li>
+    <li>
+        we can configure the feature Date and Time basis, Claims basis and some other criteria basis.
     </li>
 </ul>
-    
+    <p>
+        We can have over Feature Management configuration in <b>Azure Configuration</b> instead of <b>AppSetting.json</b>
+    </p>
 </p>
