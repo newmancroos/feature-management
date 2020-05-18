@@ -84,6 +84,7 @@ namespace Mvc_Sample.Controllers
             return View(countries);
         }
 
+        //Configuration in Azure
         [FeatureGate(FeatureFlage.ListAzureEmp)]
         public IActionResult GetEmployeeById(int Id)
         {
@@ -96,6 +97,7 @@ namespace Mvc_Sample.Controllers
             return Ok(employees.FirstOrDefault(x => x.Id == Id));
         }
 
+        //Configuration in Azure
         public async Task<IActionResult> ListState()
         {
             List<State> states = null;
