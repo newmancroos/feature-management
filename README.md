@@ -77,8 +77,8 @@
                     <li>
                         In the appSetting we have to specify the percentage of filter has to be shown that means if you give 50 then for some request it will return the response for some not return. (On for 50 percentage Off for 50 percentage)
                         <img src=".\images\PercentageFilter.JPG"><br><br>
-                        <img src=".\images\ThreeFliterEnum.jpg">
-                        <img src=".\images\TwoFilterStartup.jpg">
+                        <img src=".\images\ThreeFliterEnum.JPG">
+                        <img src=".\images\TwoFilterStartup.JPG">
                     </li>
                     <li>
                         In our sample application, Percentage sample may gives error because Filter is enable during Controller method but not when View render.( we are checking in both places). We can correct it by injecting <b>IFeatureManagerSnapshot</b> instead of <b>IFeatureManger</b> and No need to change in private readonly variable in class level.
