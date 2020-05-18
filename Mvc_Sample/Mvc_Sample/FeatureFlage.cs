@@ -9,6 +9,7 @@ namespace Mvc_Sample
     {
         ListEmployees,
         ListUsers,
-        ListCountries
+        ListCountries,
+        ListAzureEmp
     }
 }

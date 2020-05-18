@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.FeatureManagement;
+using Microsoft.FeatureManagement.Mvc;
 using Mvc_Sample.Models;
 
 namespace Mvc_Sample.Controllers
@@ -81,6 +82,18 @@ namespace Mvc_Sample.Controllers
                 };
             }
             return View(countries);
+        }
+
+        [FeatureGate(FeatureFlage.ListAzureEmp)]
+        public IActionResult GetEmployeeById(int Id)
+        {
+            List<Employee> employees = null;
+                employees = new List<Employee>
+                {
+                    new Employee { Id=1, FirstName = "Newman", LastName="Croos"},
+                    new Employee { Id=2, FirstName = "Nithin", LastName="Croos"}
+                };
+            return Ok(employees.FirstOrDefault(x => x.Id == Id));
         }
     }
 }

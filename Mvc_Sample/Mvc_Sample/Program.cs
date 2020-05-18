@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 
 namespace Mvc_Sample
 {
@@ -20,7 +21,17 @@ namespace Mvc_Sample
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseStartup<Startup>();
+                    webBuilder
+                    .ConfigureAppConfiguration((hostingContext, config) => 
+                    {
+                        var settings = config.Build();
+                        config.AddAzureAppConfiguration(options =>
+                        {
+                            options.Connect(settings["ConnectionStrings:AppConfig"])
+                                .UseFeatureFlags();
+                        });
+                    })
+                    .UseStartup<Startup>();
                 });
     }
 }

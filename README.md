@@ -108,9 +108,51 @@
                 *Deplyment takes place and create a App Configuratio in the given name. <br>
                 *Open your App configuration and Add a feature flage<br>
                 <img src=".\images\add-beta-feature-flag.png"> <br><br>
-                *Note down the connection string for the created App configuration<br>
+                *Note down the primary connection string for the created App configuration<br>
             </li>
         </ol>
+        <ul>
+            <li>
+                To use <b>Azure Configuration</b> We need to install a Nuget package<br>
+                <b> dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore, 
+                    dotnet add package Microsoft.FeatureManagement.AspNetCore <br>(this we need for both Azure or in-side app Feature management</b> 
+            </li>
+            <li>
+                Create <b>ConnectionStrings -&gt; AppConfig</b> in AppSetting.json and past primary connection string from the Azure App Config.
+            </li>
+            <li>
+                now we need to change the program.cs to configure the Azure configuration setting.<br>
+                <img src=".\images\Azure_App_Config_Confic_in_program_cs.JPG"><br>
+            </li>
+            <li>
+                in Startup.cs, in ConfigureServices method
+                <pre>
+                    services.AddFeatureManagement();
+                </pre>
+                and in Configure method
+                <pre>
+                     app.UseAzureAppConfiguration();
+                </pre>
+            </li>
+            <li>
+                in the FeatureFlag enum add
+                <pre>
+                    namespace TestFeatureFlags
+                        {
+                            public enum MyFeatureFlags
+                            {
+                                ListAzuerEmp  // Azure app configuration name we created. we copied this primary connectionstring to 
+                                              // the  appsetting.json. this is not a Aure config but a key inside a azure config  
+                                              // ex. MvcFeature -&gt;ListAzureEmp.
+                            }
+                        }
+                </pre>
+            </li>
+            <li>
+                Now we can apply the Feature tag in the controler method<br>
+                <img src=".\images\FeatureAttributeInControlerMethod.JPG">
+            </li>
+        </ul>
     </p>
 
 </p>
