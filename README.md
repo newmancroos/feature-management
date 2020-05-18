@@ -153,6 +153,7 @@
                 <img src=".\images\FeatureAttributeInControlerMethod.JPG">
             </li>
         </ul>
+        We can also use normal implementation for azure feature management as well we can use <b>FeatureGate(FeatureFlage.ListEmployee)</b> to inside app configureation.
     </p>
 
 </p>

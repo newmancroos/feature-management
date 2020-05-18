@@ -1,0 +1,15 @@
+﻿@model List<State>
+@{
+    ViewData["Title"] = "ListState";
+}
+
+<h1>ListState</h1>
+
+<Feature name="@nameof(FeatureFlage.ListState)">
+    <ul>
+        @foreach (var state in Model)
+        { 
+            <li>@state.StateName</li>
+        }
+    </ul>
+</Feature>

@@ -10,6 +10,7 @@ namespace Mvc_Sample
         ListEmployees,
         ListUsers,
         ListCountries,
-        ListAzureEmp
+        ListAzureEmp,
+        ListState
     }
 }

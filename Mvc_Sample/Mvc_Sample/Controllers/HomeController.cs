@@ -95,5 +95,21 @@ namespace Mvc_Sample.Controllers
                 };
             return Ok(employees.FirstOrDefault(x => x.Id == Id));
         }
+
+        public async Task<IActionResult> ListState()
+        {
+            List<State> states = null;
+            if (await _featureManger.IsEnabledAsync(nameof(FeatureFlage.ListState)))
+            {
+                states = new List<State> {
+                    new State { Id =1, CountryId = 1, StateName = "Maryland"},
+                    new State { Id =2, CountryId = 1, StateName = "Pensylvania"},
+                    new State { Id =3, CountryId = 1, StateName = "New York"}
+                };
+                
+            }
+            return View(states);
+             
+        }
     }
 }
