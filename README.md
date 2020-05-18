@@ -33,7 +33,7 @@
     </li>
     <li>
         now we can use the Feature check in the view
-        <img src="Feature_Check_in_View.JPG">
+        <img src=".\images\Feature_Check_in_View.JPG">
     </li>
     <li>
         Now we know how to define and use <b>Feature Management</b> but how to Endble/On the feature??????
@@ -43,7 +43,7 @@
     </li>
     <li>
         Declare Feature management in appSetting.json under <b>FeatureManagement -- [FeatureName : true]</b><br>
-        <img src="Enable_Feature_AppSetting.JPG">
+        <img src=".\images\Enable_Feature_AppSetting.JPG">
     </li>
     <li>
         we can configure the feature Date and Time basis, Claims basis and some other criteria basis.
