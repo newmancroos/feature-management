@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.FeatureManagement;
+using Microsoft.FeatureManagement.FeatureFilters;
 
 namespace Mvc_Sample
 {
@@ -24,7 +25,10 @@ namespace Mvc_Sample
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddFeatureManagement();
+            services.AddFeatureManagement()
+                .AddFeatureFilter<TimeWindowFilter>()
+                .AddFeatureFilter<PercentageFilter>();
+
             services.AddControllersWithViews();
         }
 

@@ -7,6 +7,8 @@ namespace Mvc_Sample
 {
     public enum FeatureFlage
     {
-        ListEmployees
+        ListEmployees,
+        ListUsers,
+        ListCountries
     }
 }

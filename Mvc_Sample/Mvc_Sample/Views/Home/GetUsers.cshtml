@@ -1,0 +1,15 @@
+﻿@model List<User>
+@{
+    ViewData["Title"] = "GetUsers";
+}
+
+<h1>GetUsers</h1>
+<feature name="@nameof(FeatureFlage.ListUsers)">
+    <ul>
+        @foreach (var user in Model)
+        {
+            <li>@user.FirstName @user.LastName</li>
+        }
+    </ul>
+</feature>
+

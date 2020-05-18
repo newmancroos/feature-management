@@ -15,7 +15,10 @@ namespace Mvc_Sample.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly IFeatureManager _featureManger;
 
-        public HomeController(ILogger<HomeController> logger, IFeatureManager featureManger)
+        //IFeatureManagerSnapshot maintain same Feature flage status (IReadOnlyCollection/off)
+        //for the request life time
+        //public HomeController(ILogger<HomeController> logger, IFeatureManager featureManger)
+        public HomeController(ILogger<HomeController> logger, IFeatureManagerSnapshot featureManger)
         {
             _logger = logger;
             _featureManger = featureManger;
@@ -49,6 +52,35 @@ namespace Mvc_Sample.Controllers
                 };
             }
             return View(employees);
+        }
+
+        public async Task<IActionResult> GetUsers()
+        {
+            List<User> users = null;
+            if (await _featureManger.IsEnabledAsync(nameof(FeatureFlage.ListUsers)))
+            {
+                users = new List<User>
+                {
+                    new User { Id=1, FirstName = "Newman", LastName="Croos", UserName = "Newmancroos"},
+                    new User { Id=2, FirstName = "Nithin", LastName="Croos", UserName = "NithinCroos"}
+                };
+            }
+            return View(users);
+        }
+        public async Task<IActionResult> GetCountries()
+        {
+            List<Country> countries = null;
+            if (await _featureManger.IsEnabledAsync(nameof(FeatureFlage.ListCountries)))
+            {
+                countries = new List<Country>
+                {
+                    new Country { Id=1, Name = "United State of America" },
+                    new Country { Id=2, Name = "India" },
+                    new Country { Id=3, Name = "France" },
+                    new Country { Id=4, Name = "Italy" }
+                };
+            }
+            return View(countries);
         }
     }
 }

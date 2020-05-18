@@ -1,0 +1,15 @@
+﻿@model List<Country>
+@{
+    ViewData["Title"] = "GetContries";
+}
+
+<h1>GetContries</h1>
+<feature name="@nameof(FeatureFlage.ListCountries)">
+    <ul>
+        @foreach (var country in Model)
+        {
+            <li>@country.Name</li>
+        }
+    </ul>
+</feature>
+
