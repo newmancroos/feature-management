@@ -65,9 +65,8 @@
                 <img src=".\images\app-configuration-create-settings.png"> <br><br>
                 *Deplyment takes place and create a App Configuratio in the given name. <br>
                 *Open your App configuration and Add a feature flage<br>
-                <img src="add-beta-feature-flag.png"> <br><br>
+                <img src=".\images\add-beta-feature-flag.png"> <br><br>
                 *Note down the connection string for the created App configuration<br>
-
             </li>
         </ol>
     </p>
